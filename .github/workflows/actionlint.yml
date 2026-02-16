@@ -1,0 +1,29 @@
+#Github Workflow to lint GitHub Actions workflows
+#
+#SPDX-FileCopyrightText: 2025-2026 German Federal Office for Information Security (BSI) <https://www.bsi.bund.de>
+#Software-Engineering: 2025-2026 Intevation GmbH <https://intevation.de>
+#SPDX-License-Identifier: Apache-2.0
+
+name: "Actionlint"
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actionlint:
+    name: Lint GitHub Actions workflows
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        repository: csaf-tools/csaf-action
+
+    - name: Run actionlint
+      uses: raven-actions/actionlint@v2

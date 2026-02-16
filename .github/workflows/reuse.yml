@@ -1,6 +1,7 @@
 #Github Workflow reuse licensecheck
 #
-#SPDX-FileCopyrightText: 2025 German Federal Office for Information Security (BSI) <https://www.bsi.bund.de>
+#SPDX-FileCopyrightText: 2025-2026 German Federal Office for Information Security (BSI) <https://www.bsi.bund.de>
+#Software-Engineering: 2025-2026 Intevation GmbH <https://intevation.de>
 #SPDX-License-Identifier: Apache-2.0
 
 name: "License Check"
@@ -24,6 +25,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
+      with:
+        repository: csaf-tools/csaf-action
 
     - name: REUSE compliance check
       uses: fsfe/reuse-action@v6

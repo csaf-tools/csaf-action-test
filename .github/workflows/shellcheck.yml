@@ -1,4 +1,5 @@
-#SPDX-FileCopyrightText: 2025 Intevation GmbH
+#SPDX-FileCopyrightText: 2025-2026 German Federal Office for Information Security (BSI) <https://www.bsi.bund.de>
+#Software-Engineering: 2025-2026 Intevation GmbH <https://intevation.de>
 #SPDX-License-Identifier: Apache-2.0
 #
 name: "Shellcheck"
@@ -15,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: csaf-tools/csaf-action
       - name: Extract commands
         run: ./update_local_execution.sh
       - name: Run ShellCheck

@@ -1,6 +1,7 @@
 #Github Workflow to find and notify about misspellings
 #
-#SPDX-FileCopyrightText: 2025 Intevation GmbH
+#SPDX-FileCopyrightText: 2025-2026 German Federal Office for Information Security (BSI) <https://www.bsi.bund.de>
+#Software-Engineering: 2025-2026 Intevation GmbH <https://intevation.de>
 #SPDX-License-Identifier: Apache-2.0
 
 name: "Codespell spelling check"
@@ -14,6 +15,9 @@ on:
       - '.github/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   codespell:
     name: Find and notify about common misspellings
@@ -24,6 +28,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
+      with:
+        repository: csaf-tools/csaf-action
     - name: Run codespell
       uses: codespell-project/actions-codespell@v2
       with:

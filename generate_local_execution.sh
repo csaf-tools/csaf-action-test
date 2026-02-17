@@ -5,17 +5,20 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+set -eu -o pipefail
+
+input_file=${1:-action.yml}
 output_file="local_execution.sh"
 
 # shebang and SPDX headers
 head -n 6 "$0" >| "$output_file"
 
 # environment variables
-yq eval '.inputs | to_entries[] | .key + "=\"" + (.value.default | tostring) + "\""' action.yml >> "$output_file"
+yq eval '.inputs | to_entries[] | .key + "=\"" + (.value.default | tostring) + "\""' $input_file >> "$output_file"
 
 echo >> "$output_file"
 
-yq -r '.runs.steps[].run' action.yml | grep -v '^null$' | sed -r 's/\$\{\{ *env\.([^ ]+) *\}\}/\$\1/g' | grep -v "GITHUB_ENV" >> "$output_file"
+yq -r '.runs.steps[].run' $input_file | grep -v '^null$' | sed -r 's/\$\{\{ *env\.([^ ]+) *\}\}/\$\1/g' | grep -v "GITHUB_ENV" >> "$output_file"
 
 sed -ri \
     -e 's/\$\{\{ inputs\.([^ ]+) }}/\${\1}/g' \

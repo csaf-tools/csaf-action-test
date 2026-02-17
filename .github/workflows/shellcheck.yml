@@ -18,8 +18,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: csaf-tools/csaf-action
+          path: csaf-action
+          ref: prepare-marketplace
+      - uses: actions/checkout@v4
+        with:
+          path: csaf-action-test
       - name: Extract commands
-        run: ./update_local_execution.sh
+        run: ./csaf-action-test/generate_local_execution.sh ./csaf-action/action.yml
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:

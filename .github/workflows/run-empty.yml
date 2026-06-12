@@ -19,7 +19,13 @@ jobs:
       fail-fast: false
 
     steps:
-    - name: Publish CSAF advisories (no documents)
+    - name: Delete branch
+      run: |
+        git branch -D gh-pages-test-empty
+        git push origin :gh-pages-test-empty
+        git remote system prune
+
+    - name: Create empty CSAF Publisher
       uses: csaf-tools/csaf-action@feat/setup-empty
       with:
         publisher_name: Example Test Company
@@ -27,6 +33,22 @@ jobs:
         publisher_issuing_authority: "We at Example Test Company are responsible for publishing and maintaining Product Test."
         publisher_contact_details: "Example Test Company can be reached at contact_us@example.com or via our website at https://test.example.com/contact."
         source_csaf_documents: ""
+        openpgp_secret_key: ${{ secrets.CSAF_OPENPGP_SECRET_KEY }}
+        openpgp_public_key: ${{ secrets.CSAF_OPENPGP_KEY }}
+        generate_index_files: true
+        openpgp_use_signatures: false
+        write_security: true
+        html_title: CSAF Advisories Test
+        target_branch: gh-pages-test-empty
+
+    - name: Add CSAF advisories
+      uses: csaf-tools/csaf-action@feat/setup-empty
+      with:
+        publisher_name: Example Test Company
+        publisher_namespace: https://test.example.com
+        publisher_issuing_authority: "We at Example Test Company are responsible for publishing and maintaining Product Test."
+        publisher_contact_details: "Example Test Company can be reached at contact_us@example.com or via our website at https://test.example.com/contact."
+        source_csaf_documents: test/inputs
         openpgp_secret_key: ${{ secrets.CSAF_OPENPGP_SECRET_KEY }}
         openpgp_public_key: ${{ secrets.CSAF_OPENPGP_KEY }}
         generate_index_files: true

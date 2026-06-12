@@ -19,7 +19,7 @@ jobs:
         with:
           repository: csaf-tools/csaf-action
           path: csaf-action
-          ref: prepare-marketplace
+          ref: main
       - uses: actions/checkout@v4
         with:
           path: csaf-action-test

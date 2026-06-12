@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Publish CSAF advisories
-      uses: csaf-tools/csaf-action@main
+      uses: csaf-tools/csaf-action@feat/setup-empty
       with:
         publisher_name: Example Test Company
         publisher_namespace: https://test.example.com
@@ -33,3 +33,4 @@ jobs:
         openpgp_use_signatures: false
         write_security: true
         html_title: CSAF Advisories Test
+        target_branch: gh-pages-test

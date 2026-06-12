@@ -22,8 +22,5 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
-      with:
-        repository: csaf-tools/csaf-action
-
     - name: Run actionlint
       uses: raven-actions/actionlint@v2

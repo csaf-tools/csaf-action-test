@@ -20,10 +20,9 @@ jobs:
 
     steps:
     - name: Delete branch
-      run: |
-        git branch -D gh-pages-test-empty
-        git push origin :gh-pages-test-empty
-        git remote system prune
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/gh-pages-test-empty" || true
 
     - name: Create empty CSAF Publisher
       uses: csaf-tools/csaf-action@feat/setup-empty

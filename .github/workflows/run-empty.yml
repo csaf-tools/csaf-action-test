@@ -42,7 +42,7 @@ jobs:
 
     - name: cleanup folders
       run: |
-        ls -laR
+        ls -laR target/.well-known
         sudo rm -rf source/ target/
 
     - name: Add CSAF advisories
@@ -60,3 +60,7 @@ jobs:
         write_security: true
         html_title: CSAF Advisories Test
         target_branch: gh-pages-test-empty
+
+    - name: show folders
+      run: |
+        ls -laR target/.well-known

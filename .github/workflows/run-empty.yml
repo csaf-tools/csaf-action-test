@@ -40,6 +40,11 @@ jobs:
         html_title: CSAF Advisories Test
         target_branch: gh-pages-test-empty
 
+    - name: cleanup folders
+      run: |
+        ls -laR
+        rm -rf source/ target/
+
     - name: Add CSAF advisories
       uses: csaf-tools/csaf-action@feat/setup-empty
       with:

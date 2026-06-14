@@ -25,7 +25,7 @@ jobs:
       run: gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/gh-pages-test-empty" || true
 
     - name: Create empty CSAF Publisher
-      uses: csaf-tools/csaf-action@feat/setup-empty
+      uses: csaf-tools/csaf-action@main
       with:
         publisher_name: Example Test Company
         publisher_namespace: https://test.example.com
@@ -46,7 +46,7 @@ jobs:
         sudo rm -rf source/ target/
 
     - name: Add CSAF advisories
-      uses: csaf-tools/csaf-action@feat/setup-empty
+      uses: csaf-tools/csaf-action@main
       with:
         publisher_name: Example Test Company
         publisher_namespace: https://test.example.com

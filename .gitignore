@@ -15,3 +15,4 @@
 *.gpg
 .gnupg/
 *.crt
+local_execution.sh

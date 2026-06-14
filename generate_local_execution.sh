@@ -7,7 +7,7 @@
 
 set -eu -o pipefail
 
-input_file=${1:-action.yml}
+input_file=${1:-../csaf-action/action.yml}
 output_file="local_execution.sh"
 
 # shebang and SPDX headers

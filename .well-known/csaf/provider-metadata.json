@@ -1,5 +1,5 @@
 {
-  "canonical_url": "https://csaf-tools.github.io/csaf-action-test/.well-known/csaf/provider-metadata.json",
+  "canonical_url": "https://example.com/.well-known/csaf/provider-metadata.json",
   "distributions": [
     {
       "rolie": {
@@ -7,23 +7,23 @@
           {
             "summary": "TLP:WHITE advisories",
             "tlp_label": "WHITE",
-            "url": "https://csaf-tools.github.io/csaf-action-test/.well-known/csaf/white/csaf-feed-tlp-white.json"
+            "url": "https://example.com/.well-known/csaf/white/csaf-feed-tlp-white.json"
           }
         ]
       }
     },
     {
-      "directory_url": "https://csaf-tools.github.io/csaf-action-test/.well-known/csaf/white"
+      "directory_url": "https://example.com/.well-known/csaf/white"
     }
   ],
-  "last_updated": "2026-06-14T08:10:26Z",
+  "last_updated": "2026-11-01T09:06:58Z",
   "list_on_CSAF_aggregators": true,
   "metadata_version": "2.0",
   "mirror_on_CSAF_aggregators": true,
   "public_openpgp_keys": [
     {
       "fingerprint": "9CCCE4C047F1AD85007BDFB1B5A02320A3461A02",
-      "url": "https://csaf-tools.github.io/csaf-action-test/.well-known/csaf/openpgp/9CCCE4C047F1AD85007BDFB1B5A02320A3461A02.asc"
+      "url": "https://example.com/.well-known/csaf/openpgp/9CCCE4C047F1AD85007BDFB1B5A02320A3461A02.asc"
     }
   ],
   "publisher": {

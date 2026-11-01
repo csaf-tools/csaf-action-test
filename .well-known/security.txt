@@ -1,1 +1,3 @@
+CSAF: https://example.com/.well-known/csaf/provider-metadata.json
+
 CSAF: https://csaf-tools.github.io/csaf-action-test/.well-known/csaf/provider-metadata.json
